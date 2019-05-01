@@ -229,6 +229,273 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdi945.github.io/2019/05/01/airflow-quick-start/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangdi17">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangdi945的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/01/airflow-quick-start/" itemprop="url">airflow quick start</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-01T19:49:09+08:00">
+                2019-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>airflow是一个以编程的方式编写、调度和监控工作流的平台，并支持与第三方平台的集成。</p>
+<ul>
+<li>2014年，诞生于Airbnb</li>
+<li>2016年，进入Apache孵化器</li>
+<li>2019年，1月8日毕业成为Apache顶级项目</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装选用的是airflow最新的版本，1.10.3。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install apache-airflow==1.10.3</span><br></pre></td></tr></table></figure></p>
+<p>安装过程中如果有依赖包的版本较新，无法通过pip源安装，可以通过github安装。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># install requests==2.21.0</span><br><span class="line">pip install git+https://github.com/requests/requests.git@v2.21.0</span><br><span class="line"># install flask-admin==1.5.3</span><br><span class="line">pip install git+https://github.com/flask-admin/flask-admin.git@v1.5.3</span><br></pre></td></tr></table></figure></p>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>配置airflow文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export AIRFLOW_HOME=~/airflow</span><br></pre></td></tr></table></figure></p>
+<p>初始化数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">airflow initdb</span><br></pre></td></tr></table></figure></p>
+<p>启动webserver和scheduler<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nohup airflow webserver -p 8080 &gt; $&#123;AIRFLOW_HOME&#125;/logs/server.log 2&gt;&amp;1 &amp;</span><br><span class="line">nohup airflow scheduler &gt; $&#123;AIRFLOW_HOME&#125;/logs/scheduler.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+<p>停止<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(ps -ef | grep airflow | grep -v grep | awk &apos;&#123;print &quot;kill -9 &quot;$2&#125;&apos;)</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://airflow.apache.org/start.html" target="_blank" rel="noopener">airflow官方文档</a></li>
+<li><a href="https://pip.pypa.io/en/stable/reference/pip_install/#vcs-support" target="_blank" rel="noopener">pip支持从git上安装包</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdi945.github.io/2019/01/02/python-guide-logging/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangdi17">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangdi945的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/02/python-guide-logging/" itemprop="url">python guide logging</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T23:06:53+08:00">
+                2019-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="日志的作用"><a href="#日志的作用" class="headerlink" title="日志的作用"></a>日志的作用</h1><ul>
+<li>诊断日志</li>
+<li>数据日志</li>
+</ul>
+<h1 id="logging-模块"><a href="#logging-模块" class="headerlink" title="logging 模块"></a>logging 模块</h1><p>logging 模块提供了几类组件：</p>
+<ul>
+<li>loggers 提供应用程序代码可以直接使用的接口。</li>
+<li>handlers 将 loggers 创建的日志记录发送到目的地。</li>
+<li>filters 提供对输出日志的精细过滤。</li>
+<li>formatters 指定日志输出格式。</li>
+</ul>
+<p>各个组件之间通过 LogRecord 实例传递日志事件信息。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.python-guide.org/writing/logging/" target="_blank" rel="noopener">https://docs.python-guide.org/writing/logging/</a><br><a href="https://docs.python.org/3/howto/logging.html#logging-basic-tutorial" target="_blank" rel="noopener">https://docs.python.org/3/howto/logging.html#logging-basic-tutorial</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdi945.github.io/2019/01/01/batch-iteration/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -629,7 +896,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
