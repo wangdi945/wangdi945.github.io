@@ -12,12 +12,12 @@ airflow是一个以编程的方式编写、调度和监控工作流的平台，�
 
 # 安装
 安装选用的是airflow最新的版本，1.10.3。
-```
+```bash
 pip install apache-airflow==1.10.3
 ```
 
 安装过程中如果有依赖包的版本较新，无法通过pip源安装，可以通过github安装。
-```
+```bash
 # install requests==2.21.0
 pip install git+https://github.com/requests/requests.git@v2.21.0
 # install flask-admin==1.5.3
@@ -26,23 +26,23 @@ pip install git+https://github.com/flask-admin/flask-admin.git@v1.5.3
 
 # 运行
 配置airflow文件夹
-```
+```bash
 export AIRFLOW_HOME=~/airflow
 ```
 
 初始化数据库
-```
+```bash
 airflow initdb
 ```
 
 启动webserver和scheduler
-```
+```bash
 nohup airflow webserver -p 8080 > ${AIRFLOW_HOME}/logs/server.log 2>&1 &
 nohup airflow scheduler > ${AIRFLOW_HOME}/logs/scheduler.log 2>&1 &
 ```
 
 停止
-```
+```bash
 $(ps -ef | grep airflow | grep -v grep | awk '{print "kill -9 "$2}')
 ```
 
