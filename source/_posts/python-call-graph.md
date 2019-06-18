@@ -8,7 +8,7 @@ pycallgraph被设计成一个用于python应用程序的可视化分析工具。
 
 # 安装
 安装graphviz
-```
+```bash
 sudo apt-get install graphviz
 
 # test if graphviz works
@@ -23,12 +23,12 @@ dot -c
 ```
 
 安装pycallgraph
-```
+```bash
 pip install pycallgraph
 ```
 
 # 使用
-```
+```bash
 # quick start
 pycallgraph graphviz -- ./mypythonscript.py
 
