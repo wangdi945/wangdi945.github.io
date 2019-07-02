@@ -33,7 +33,10 @@ git commit --amend --author "user <user@gmail.com>
 ```
 git commit --amend --date="$(date -d '2019-06-03 12:19:01' -R)"
 ```
-
+修改上次提交的committer date：
+```
+GIT_COMMITTER_DATE="date" git commit --amend
+```
 # 合并与重置（Rebase）
 合并提交：
 ```
