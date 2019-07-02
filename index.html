@@ -229,6 +229,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wangdi945.github.io/2019/07/02/airflow-development-environment/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangdi17">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wangdi945的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/02/airflow-development-environment/" itemprop="url">airflow development environment</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-02T21:20:25+08:00">
+                2019-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文主要介绍Mac下如何安装Airflow开发环境。</p>
+<h1 id="安装python3"><a href="#安装python3" class="headerlink" title="安装python3"></a>安装python3</h1><h2 id="安装XCode"><a href="#安装XCode" class="headerlink" title="安装XCode"></a>安装XCode</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<h2 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br><span class="line"># 设置环境变量</span><br><span class="line">export PATH=/usr/local/bin:/usr/local/sbin:$PATH</span><br></pre></td></tr></table></figure>
+<h2 id="安装python3-1"><a href="#安装python3-1" class="headerlink" title="安装python3"></a>安装python3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br></pre></td></tr></table></figure>
+<h3 id="报错：Permission-denied-dir-s-mkdir-usr-local-Frameworks"><a href="#报错：Permission-denied-dir-s-mkdir-usr-local-Frameworks" class="headerlink" title="报错：Permission denied @ dir_s_mkdir - /usr/local/Frameworks"></a>报错：Permission denied @ dir_s_mkdir - /usr/local/Frameworks</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/local/Frameworks</span><br><span class="line">sudo chown $(whoami):admin /usr/local/Frameworks</span><br></pre></td></tr></table></figure>
+<h1 id="安装Airflow开发环境"><a href="#安装Airflow开发环境" class="headerlink" title="安装Airflow开发环境"></a>安装Airflow开发环境</h1><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/apache/airflow.git</span><br></pre></td></tr></table></figure>
+<h2 id="安装airflow"><a href="#安装airflow" class="headerlink" title="安装airflow"></a>安装airflow</h2><p>参考INSTALL和run_unit_tests.sh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 方法一</span><br><span class="line">pip install -e .</span><br><span class="line"># 方法二</span><br><span class="line">python setup.py develop</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装开发依赖"><a href="#安装开发依赖" class="headerlink" title="安装开发依赖"></a>安装开发依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install &apos;apache-airflow[devel]&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="安装mysqlclient"><a href="#安装mysqlclient" class="headerlink" title="安装mysqlclient"></a>安装mysqlclient</h2><h3 id="安装mysql开发包"><a href="#安装mysql开发包" class="headerlink" title="安装mysql开发包"></a>安装mysql开发包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql-connector-c</span><br></pre></td></tr></table></figure>
+<h3 id="修改mysql-config"><a href="#修改mysql-config" class="headerlink" title="修改mysql_config"></a>修改mysql_config</h3><p>增加写权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 /usr/local/bin/mysql_config</span><br><span class="line">vi /usr/local/bin/mysql_config</span><br></pre></td></tr></table></figure></p>
+<p>change<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># on macOS, on or about line 112:</span><br><span class="line"># Create options</span><br><span class="line">libs=&quot;-L$pkglibdir&quot;</span><br><span class="line">libs=&quot;$libs -l &quot;</span><br></pre></td></tr></table></figure></p>
+<p>to<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Create options</span><br><span class="line">libs=&quot;-L$pkglibdir&quot;</span><br><span class="line">libs=&quot;$libs -lmysqlclient -lssl -lcrypto&quot;</span><br></pre></td></tr></table></figure></p>
+<h1 id="unittest"><a href="#unittest" class="headerlink" title="unittest"></a>unittest</h1><p>参考run_unit_tests.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># environment</span></span><br><span class="line"><span class="built_in">export</span> AIRFLOW_HOME=/Users/wangdi17/Desktop/baidu/code/airflow/airflow_home</span><br><span class="line"><span class="built_in">export</span> AIRFLOW__CORE__UNIT_TEST_MODE=True</span><br><span class="line"></span><br><span class="line"><span class="comment"># add test/contrib to PYTHONPATH</span></span><br><span class="line">DIR=<span class="string">"<span class="variable">$( cd "$( dirname "$&#123;BASH_SOURCE[0]&#125;" )</span>"</span> &amp;&amp; <span class="built_in">pwd</span> )<span class="string">"</span></span><br><span class="line"><span class="string">export PYTHONPATH=<span class="variable">$PYTHONPATH</span>:<span class="variable">$&#123;DIR&#125;</span>/tests/test_utils</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># Generate the `airflow` executable if needed</span></span><br><span class="line"><span class="string">which airflow &gt; /dev/null || /Users/wangdi17/Desktop/baidu/code/airflow/venv/bin/python setup.py develop</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># Initialize the DB</span></span><br><span class="line"><span class="string">echo "</span>Initializing the DB<span class="string">"</span></span><br><span class="line"><span class="string">yes | airflow initdb</span></span><br><span class="line"><span class="string">yes | airflow resetdb</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># To run individual tests:</span></span><br><span class="line"><span class="string">nosetests tests.jobs.test_scheduler_job:SchedulerJobTest.test_is_alive</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wangdi945.github.io/2019/06/19/git-cheatsheet/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1351,137 +1483,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wangdi945.github.io/2018/10/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangdi17">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wangdi945的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/11/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-11T19:04:23+08:00">
-                2018-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1525,7 +1533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
